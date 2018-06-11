@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: mobile_dial_production
-  username: mobile_dial
-  password: <%= ENV['MOBILE_DIAL_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  username: <%= ENV['CLEARDB_DATABASE_USERNAME'] %>
+  password: <%= ENV['CLEARDB_DATABASE_PASSWORD'] %>
