@@ -19,7 +19,11 @@ $(function(){
       total = number.text();
       total = total.slice(0,-1);
       number.empty().append(total);
-
+      if(number.html().length == 0){
+        $('.show_numb').empty();
+      }else{
+        search_inside_local(total)
+      }
     }else if(index == 14){
 
 
@@ -90,24 +94,39 @@ function search_inside_local(cur_numbs){
     })
   })
 
+  var temp_d = {}
   if(left_numb.length !== 0){
     $.each(left_numb,function(k,v){
       var text_on_numb = $('.digits[data-numb='+v+']').attr('data-text');
       var split = text_on_numb.split('');
+      $.each(split,function(k,v){
+        Object.keys(temp_d) === 0 ? search_data : temp_d
+        $.each(Object.keys(temp_d) == 0 ? search_data : temp_d,function(ks,vs){
+          if(ks.indexOf(v) !== -1){
+            temp_d[ks] = vs
+          }
+        })
+      })
     })
   }
 
   // console.log(search_data)
-  if(Object.keys(search_data).length !== 0){
-    list_append_ing(search_data)
+  if(Object.keys(temp_d).length !== 0){
+      list_append_ing(temp_d)
+  }else{
+    if(Object.keys(search_data).length !== 0){
+      list_append_ing(search_data)
+    }  
   }
+  
 
 
+  
   // console.log(search_data)
 }
 
 function list_append_ing(search_data){
-    console.log(search_data)
+    // console.log(search_data)
     var append_list = '<ul>'
     for(k of Object.keys(search_data)){
       append_list += '<li class="listnum">'+k+' &nbsp; '+search_data[k]+'</li>'
