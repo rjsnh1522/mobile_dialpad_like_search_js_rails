@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+####
+Author Pawan Chauraisa
 
-Things you may want to cover:
+-------------
+How to run the project
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Go inside project folder and do bundle install
+2. Open database.yml file and change user name and password accordingly
+3. Do rake db:create db:migrate db:seed
+4. Open project in localhost:3000
+5. click on any number and see mobile type search functionality implemented.

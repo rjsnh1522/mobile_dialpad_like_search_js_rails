@@ -15,6 +15,7 @@ $(function(){
       number.append("#");
     }else if(index == 12){
       number.empty();
+       $('.show_numb').empty();
     }else if(index == 13){
       total = number.text();
       total = total.slice(0,-1);
